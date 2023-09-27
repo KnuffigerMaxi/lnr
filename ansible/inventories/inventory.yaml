@@ -1,0 +1,23 @@
+router:
+  vars:
+    ansible_user: vyos
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: vyos.vyos.vyos
+  hosts:
+    r1v:
+      ansible_host: 10.20.30.1
+    r2v:
+      ansible_host: 10.20.30.2
+    r3v:
+      ansible_host: 10.20.30.3
+    r4v:
+      ansible_host: 10.20.30.4
+    r5v:
+      ansible_host: 10.20.30.5
+    r6v:
+      ansible_host: 10.20.30.6
+    r7v:
+      ansible_host: 10.20.30.7
+    r8v:
+      ansible_host: 10.20.30.8
+    
