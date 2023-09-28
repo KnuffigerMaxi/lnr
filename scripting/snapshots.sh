@@ -17,16 +17,6 @@ then
     exit 99
 fi
 
-# nur test
-if [[ $1 == "test" ]]
-then
-    for i in "${!vms[@]}"
-    do
-	echo -n "$x$i "
-	sudo ${vms[$i]} listsnapshot $i | grep $2 | awk '{print $2}' | sort | tail -n 1
-    done
-fi
-
 #snapshots auflisten
 if [[ $1 == "list" ]]
 then
