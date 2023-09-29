@@ -3,8 +3,6 @@
   hosts: router
   # throttle: 1
   gather_facts: no
-  collections:
-    - lvrfrc87.git_acp
 
   tasks:
   - name: configurable backup path
@@ -14,8 +12,14 @@
         filename: "{{ inventory_hostname }}"
         dir_path: "/home/aibix/lnr/ansible_out"
 
+- name: git push
+  hosts: localhost
+  collections:
+    - lvrfrc87.git_acp
+
+  tasks:
   - name: push to github
-    throttle: 1
+    # run_once: true
     git_acp:
       path: "/home/aibix/lnr"
       add: [ "." ]
