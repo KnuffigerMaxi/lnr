@@ -34,7 +34,7 @@ then
     DAY=$(sudo qm listsnapshot $(sudo qm list | awk '!/(VMID|template)/ {print $1}' | head -n 1) | grep -B 1 current | awk '{print $2}' | head -n 1 | cut -d "-" -f 1)
     if [[ $DAY != $2 ]]
     then
-	${0} snapshot
+	${0} snapshot || { echo error ; exit 1; }
     fi
 
     # rollback
