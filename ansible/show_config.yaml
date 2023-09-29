@@ -1,10 +1,8 @@
 ---
 - name: Vyos Kram
   hosts: router
-  throttle: 1
+  # throttle: 1
   gather_facts: no
-  collections:
-    - lvrfrc87.git_acp
 
   tasks:
   - name: configurable backup path
@@ -13,12 +11,14 @@
       backup_options:
         filename: "{{ inventory_hostname }}"
         dir_path: "/home/aibix/lnr/ansible_out"
-    notify:
-      - push to github
-      
-  handlers:
+
+- name: push
+  hosts: localhost
+  collections:
+    - lvrfrc87.git_acp
+
+  tasks:
   - name: push to github
-    delegate_to: localhost
     # run_once: true
     git_acp:
       path: "/home/aibix/lnr"
