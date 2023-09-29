@@ -1,7 +1,7 @@
 ---
 - name: Vyos Kram
   hosts: router
-  # throttle: 1
+  throttle: 1
   gather_facts: no
   collections:
     - lvrfrc87.git_acp
