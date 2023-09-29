@@ -14,7 +14,7 @@
         dir_path: "/home/aibix/lnr/ansible_out"
 
   - name: push to github
-    run_once: true
+    throttle: 1
     git_acp:
       path: "/home/aibix/lnr"
       add: [ "." ]
