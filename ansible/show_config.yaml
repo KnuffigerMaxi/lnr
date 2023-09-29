@@ -1,6 +1,7 @@
 ---
 - name: Vyos Kram
   hosts: router
+  throttle: 1
   gather_facts: no
   collections:
     - lvrfrc87.git_acp
@@ -14,7 +15,6 @@
         dir_path: "/home/aibix/lnr/ansible_out"
 
   - name: push to github
-    throttle: 1
     git_acp:
       path: "/home/aibix/lnr"
       add: [ "." ]
