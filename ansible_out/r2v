@@ -11,7 +11,6 @@ set protocols ospf interface eth0
 set protocols ospf interface eth1
 set protocols ospf interface eth2
 set protocols ospf parameters router-id '10.10.255.2'
-set protocols static
 set service ntp allow-client address '0.0.0.0/0'
 set service ntp allow-client address '::/0'
 set service ntp server time1.vyos.net

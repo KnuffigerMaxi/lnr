@@ -1,0 +1,11 @@
+---
+- name: restore vyos config
+  hosts: router
+  # throttle: 1
+  gather_facts: no
+
+  tasks:
+  - name: restore config
+    vyos_config:
+      src: "/home/aibix/lnr/ansible_out/{{ inventory_hostname }}"
+      
