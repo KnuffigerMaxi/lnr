@@ -3,7 +3,7 @@ set interfaces ethernet eth1 address '10.10.37.3/24'
 set interfaces ethernet eth2 address '10.10.34.3/24'
 set interfaces ethernet eth3 address '10.20.30.3/24'
 set interfaces loopback lo address '10.10.255.3/32'
-set protocols static route 0.0.0.0/0 next-hop 10.10.23.2
+set protocols
 set service ntp allow-client address '0.0.0.0/0'
 set service ntp allow-client address '::/0'
 set service ntp server time1.vyos.net
