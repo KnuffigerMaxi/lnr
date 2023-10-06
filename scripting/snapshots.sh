@@ -1,3 +1,5 @@
+
+
 #/bin/bash
 
 # array mit ids und command füllen
