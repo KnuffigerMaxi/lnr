@@ -18,6 +18,15 @@ router:
       ansible_host: 10.20.30.6
     r7v:
       ansible_host: 10.20.30.7
+      ospf_network:
+        - 10.10.67.0/24
+        - 10.10.37.0/24
+        - 10.10.78.0/24
+        - 10.10.255.7/32
+      ospf_interface:
+        - eth0
+        - eth1
+        - eth2
     r8v:
       ansible_host: 10.20.30.8
     
