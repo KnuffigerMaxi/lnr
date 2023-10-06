@@ -29,4 +29,10 @@ router:
         - eth2
     r8v:
       ansible_host: 10.20.30.8
-    
+      ospf_network:
+        - 10.10.48.0/24
+        - 10.10.78.0/24
+        - 10.10.255.8/32
+      ospf_interface:
+        - eth0
+        - eth1
