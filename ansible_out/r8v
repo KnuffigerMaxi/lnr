@@ -2,6 +2,12 @@ set interfaces ethernet eth0 address '10.10.78.8/24'
 set interfaces ethernet eth1 address '10.10.48.8/24'
 set interfaces ethernet eth3 address '10.20.30.8/24'
 set interfaces loopback lo address '10.10.255.8/32'
+set protocols ospf area 0 network '10.10.48.0/24'
+set protocols ospf area 0 network '10.10.78.0/24'
+set protocols ospf area 0 network '10.10.255.8/32'
+set protocols ospf interface eth0
+set protocols ospf interface eth1
+set protocols ospf parameters router-id '10.10.255.8'
 set service ntp allow-client address '0.0.0.0/0'
 set service ntp allow-client address '::/0'
 set service ntp server time1.vyos.net
