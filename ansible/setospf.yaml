@@ -29,7 +29,9 @@
           vyos_config:
             lines:
               - set protocols ospf parameters router-id 10.10.255.{{ inventory_hostname[1:2] }}
-            save: true
       when: (ospf_network is defined) and (ospf_interface is defined)
-      
+
+    - name: save config
+      vyos_config:
+        save: true
 
