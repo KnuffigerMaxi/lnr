@@ -7,9 +7,9 @@
 
   tasks:
     - name: set_interface
-      routeros.routeros:
-        command:
-          -  /ip address add address={{ item.ipv4_address }} interface={{ item.interface }}
+      vyos_config:
+        lines:
+          -  set interfacce {{ item.interface_type }} {{ item.interface }} address {{ item.ipv4_address }}
       loop: "{{ interfaces }}"
       loop_control:
         label: "{{ item.interface }}"
