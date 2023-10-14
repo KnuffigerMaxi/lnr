@@ -11,4 +11,4 @@
         lines:
           - set interfaces loopback lo address 10.10.255.{{ inventory_hostname[1:2] }}/32
         save: true
-        
+

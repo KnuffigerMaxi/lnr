@@ -25,23 +25,50 @@
         label: "{{ item.interface }}"
       when: os == "mikrotik"
       tags: set_interface
-         
+
     - name: set ssh
       vyos_config:
         lines:
           - set service ssh port 22
+      when: os == "vyos"
+      tags: set_ssh
 
-    - name: set credentials
+    - name: set_credentials_vyos
       vyos_config:
         lines:
           - set system login user vyos authentication public-keys {{ aibix_pubkey_id }} key {{ aibix_pubkey }}
           - set system login user vyos authentication public-keys {{ aibix_pubkey_id }} type {{ aibix_pubkey_type }}
+      when: os == "vyos"
+      tags: set_ssh
 
-    - name: configure hostname and domain-name
+    - name: set_credentials_mikrotik
+      community.routeros.command:
+        commands:
+          - /user ssh-keys add user=admin key="{{ aibix_pubkey_type }} {{ aibix_pubkey }} {{ aibix_pubkey_id }}"
+      when: os == "mikrotik"
+      tags: set_ssh
+
+    - name: configure hostname and domain-name vyos
       vyos.vyos.vyos_system:
         host_name: "{{ inventory_hostname }}"
         domain_name: "hel.eth64.de"
+      when: os == "vyos"
+      tags: set_ssh
 
+    - name: configure hostname and domain-name mikrotik
+      community.routeros.command:
+        commands:
+          - /system identity set name="{{ inventory_hostname }}"
+      when: os == "mikrotik"
+      tags: set_ssh
+
+#
+#
+# weitermachen mit Trennung vyos/mikrotik
+#
+#
+
+      
     - name: delete protocols
       vyos_config:
         lines:
@@ -78,7 +105,7 @@
       loop_control:
         label: "{{ item.interface }}"
       when: item.hw_address is defined
-      
+
     - name: save config
       vyos_config:
         save: true
