@@ -1,20 +1,31 @@
 ---
 
-- hosts: mikrotik
+- hosts: router
+  gather_facts: "no"
 
   connection: network_cli
-  gather_facts: 'no'
 
   tasks:
-    - name: set_interface
-      routeros.routeros:
-        command:
-          -  /ip address add address={{ item.ipv4_address }} interface={{ item.interface }}
+    - name: set_interface_vyos
+      vyos_config:
+        lines:
+          -  set interface {{ item.interface_type }} {{ item.interface }} address {{ item.ipv4_address }}
       loop: "{{ interfaces }}"
       loop_control:
         label: "{{ item.interface }}"
+      when: os == "vyos"
       tags: set_interface
-          
+
+    - name: set_interface_mikrotik
+      community.routeros.command:
+        commands:
+          -  "/ip address add address={{ item.ipv4_address }} interface={{ item.interface }}"
+      loop: "{{ interfaces }}"
+      loop_control:
+        label: "{{ item.interface }}"
+      when: os == "mikrotik"
+      tags: set_interface
+         
     - name: set ssh
       vyos_config:
         lines:

@@ -11,6 +11,7 @@ router:
 
   hosts:
     r1v:
+      os: "vyos"
       ansible_host: 10.20.30.1
 
       interfaces:
@@ -31,15 +32,21 @@ router:
           interface_type: ethernet
           ipv4_address: 10.10.12.1/24
 
+        - interface: eth4
+          interface_type: ethernet
+          ipv4_address: 10.1.11.1/24
+
       ospf_network:
         - 10.10.12.0/24
         - 10.10.15.0/24
+        - 10.10.255.1/32
       ospf_interface:
         - eth1
         - eth2
 
 
     r2v:
+      os: "vyos"
       ansible_host: 10.20.30.2
 
       interfaces:
@@ -59,10 +66,15 @@ router:
           interface_type: ethernet
           ipv4_address: 10.10.23.2/24
 
+        - interface: eth4
+          interface_type: ethernet
+          ipv4_address: 10.2.12.2/24
+
       ospf_network:
         - 10.10.12.0/24
         - 10.10.23.0/24
         - 10.10.26.0/24
+        - 10.10.255.2/32
       ospf_interface:
         - eth0
         - eth1
@@ -70,6 +82,7 @@ router:
 
 
     r3v:
+      os: "vyos"
       ansible_host: 10.20.30.3
 
       interfaces:
@@ -93,6 +106,7 @@ router:
         - 10.10.23.0/24
         - 10.10.34.0/24
         - 10.10.37.0/24
+        - 10.10.255.3/32
       ospf_interface:
         - eth0
         - eth1
@@ -101,6 +115,7 @@ router:
 
 
     r4v:
+      os: "vyos"
       ansible_host: 10.20.30.4
 
       interfaces:
@@ -123,12 +138,15 @@ router:
       ospf_network:
         - 10.10.34.0/24
         - 10.10.48.0/24
+        - 10.10.255.4/32
+        - 172.16.4.0/24
       ospf_interface:
         - eth0
         - eth1
 
 
     r5v:
+      os: "vyos"
       ansible_host: 10.20.30.5
 
       interfaces:
@@ -151,12 +169,15 @@ router:
       ospf_network:
         - 10.10.15.0/24
         - 10.10.56.0/24
+        - 10.10.255.5/32
+        - 172.16.5.0/24
       ospf_interface:
         - eth1
         - eth2
 
 
     r6v:
+      os: "vyos"
       ansible_host: 10.20.30.6
 
       interfaces:
@@ -180,12 +201,14 @@ router:
         - 10.10.26.0/24
         - 10.10.56.0/24
         - 10.10.67.0/24
+        - 10.10.255.6/32
       ospf_interface:
         - eth0
         - eth1
         - eth2
 
     r7v:
+      os: "vyos"
       ansible_host: 10.20.30.7
 
       interfaces:
@@ -217,6 +240,7 @@ router:
 
 
     r8v:
+      os: "vyos"
       ansible_host: 10.20.30.8
 
       interfaces:
@@ -240,6 +264,7 @@ router:
         - 10.10.48.0/24
         - 10.10.78.0/24
         - 10.10.255.8/32
+        - 172.16.8.0/24
       ospf_interface:
         - eth0
         - eth1
