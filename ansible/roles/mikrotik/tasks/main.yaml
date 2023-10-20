@@ -1,0 +1,9 @@
+---
+  - name: set_interface_mikrotik
+    community.routeros.command:
+      commands:
+        -  /ip address add address={{ item.ipv4_address }} interface={{ item.interface }}
+    loop: "{{ interfaces }}"
+    loop_control:
+      label: "{{ item.interface }}"
+    tags: set_interface

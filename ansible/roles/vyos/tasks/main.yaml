@@ -1,0 +1,9 @@
+---
+  - name: set_interface_vyos
+    vyos_config:
+      lines:
+        -  set interface {{ item.interface_type }} {{ item.interface }} address {{ item.ipv4_address }}
+    loop: "{{ interfaces }}"
+    loop_control:
+      label: "{{ item.interface }}"
+    tags: set_interface

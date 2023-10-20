@@ -1,8 +1,6 @@
 router:
   vars:
-    ansible_user: vyos
     ansible_connection: ansible.netcommon.network_cli
-    ansible_network_os: vyos.vyos.vyos
     
     aibix_pubkey: 'AAAAB3NzaC1yc2EAAAADAQABAAABgQCPWJdrzcquOHSts5KPhbP0NZf5gczoZL20o/a4gd6kI3DlgSBBS0fRsoCryhYf31nH978jCQL009SFanBkVXoZFGGZ9GfaPLdCBq4hbeF3upDBFLbL3kIc5rnv6NRzN5P2pfa5DTLGCvrK+kA4vNlHk5dYjH8NlgHC6Yr9ldLFBucbmIhbE+zt43qY+DuXOQYW9LFpYSO/91QRqW9Y3AqqnPOD4tXLlOsorKa2KFoQO7F25BGx4a5vp3Yg1oYlaTzCJzjOELzBNQ8LnH4i11PN/+rT0S1B5kg8nNJNljvxX705Nzg/2bDwd9vbxOgL0tUP/gkppNs2Y4gJ3G/gXWs/jSu8mt2hqt+Gf3AWl2v5AI9Dr6Jj3iTIAtg7kJTiIlhZLZVY7Iq2C6JzviMFq6T9jnHrLDA MkDiajHZcw3CNt/jayNKi5jD9uSggEOl4OGDMClnN6V/txXJTZjbYmd+fbIkNTQv9vIn9e0ThKbsP/lStH5dfNVaDZo6gbhmee0='
     aibix_pubkey_id: aibix@hel
@@ -84,6 +82,7 @@ router:
     r3v:
       os: "vyos"
       ansible_host: 10.20.30.3
+      ansible_user: vyos
 
       interfaces:
         - interface: lo
@@ -287,7 +286,7 @@ router:
           interface_type: ethernet
           ipv4_address: 10.1.11.11/24
 
-        - interface: ether3
+        - interface: r12m
           interface_type: ethernet
           ipv4_address: 10.11.12.11/24
 
