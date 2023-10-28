@@ -3,6 +3,12 @@ set interfaces ethernet eth1 address '10.10.48.8/24'
 set interfaces ethernet eth2 address '172.16.8.1/24'
 set interfaces ethernet eth3 address '10.20.30.8/24'
 set interfaces loopback lo address '10.10.255.8/32'
+set protocols bgp address-family ipv4-unicast network 172.16.8.0/24
+set protocols bgp neighbor 10.10.255.11 address-family ipv4-unicast nexthop-self
+set protocols bgp neighbor 10.10.255.11 remote-as '65000'
+set protocols bgp neighbor 10.10.255.11 update-source 'lo'
+set protocols bgp parameters router-id '10.10.255.8'
+set protocols bgp system-as '65000'
 set protocols ospf area 0 network '10.10.48.0/24'
 set protocols ospf area 0 network '10.10.78.0/24'
 set protocols ospf area 0 network '10.10.255.8/32'
