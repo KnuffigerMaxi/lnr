@@ -26,6 +26,7 @@ set system conntrack modules sip
 set system conntrack modules sqlnet
 set system conntrack modules tftp
 set system console device ttyS0 speed '115200'
+set system domain-name 'hel.eth64.de'
 set system host-name 'r6v'
 set system login user vyos authentication encrypted-password '$6$FL5NYRJtlTnziShU$/m5boKV4WLdfaqirymDo1jUKKoQDrHv27H10hOD.dEDQDUCxBTkxL0Kui/9uLeLi6qTA4qhBDnBQfivp4ZvBZ1'
 set system login user vyos authentication plaintext-password ''

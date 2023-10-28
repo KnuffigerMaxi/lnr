@@ -2,14 +2,17 @@ set interfaces ethernet eth0 address '10.10.12.2/24'
 set interfaces ethernet eth1 address '10.10.26.2/24'
 set interfaces ethernet eth2 address '10.10.23.2/24'
 set interfaces ethernet eth3 address '10.20.30.2/24'
+set interfaces ethernet eth4 address '10.2.12.2/24'
 set interfaces loopback lo address '10.10.255.2/32'
 set protocols ospf area 0 network '10.10.12.0/24'
 set protocols ospf area 0 network '10.10.23.0/24'
 set protocols ospf area 0 network '10.10.26.0/24'
 set protocols ospf area 0 network '10.10.255.2/32'
+set protocols ospf area 0 network '10.2.12.0/24'
 set protocols ospf interface eth0
 set protocols ospf interface eth1
 set protocols ospf interface eth2
+set protocols ospf interface eth4
 set protocols ospf parameters router-id '10.10.255.2'
 set service ntp allow-client address '0.0.0.0/0'
 set service ntp allow-client address '::/0'
@@ -26,6 +29,7 @@ set system conntrack modules sip
 set system conntrack modules sqlnet
 set system conntrack modules tftp
 set system console device ttyS0 speed '115200'
+set system domain-name 'hel.eth64.de'
 set system host-name 'r2v'
 set system login user vyos authentication encrypted-password '$6$ZhhUpc/5IOu69X.I$rPPDx6ERxc7GFtYellJwmtAIlh30zZEerk3s.J02SXUJErok4WRdgAya2LDlDNvsbi4u5VZNsf5Qxyf/iquj2.'
 set system login user vyos authentication plaintext-password ''
