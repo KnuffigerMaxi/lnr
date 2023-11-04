@@ -17,11 +17,10 @@
   - name: configure_bgp_networks
     vyos_config:
       lines:
-        - set protocols bgp address-family ipv4-unicast network {{ item }}
-    # loop: "{{ bgp.networks }}"
-    # loop_control:
-    #   label: "{{ item.networks }}"
-    with_items: "{{ bgp.networks.ipv4_unicast }}"
+        - set protocols bgp address-family ipv4-unicast network {{ item.network }}
+    loop: "{{ bgp.networks }}"
+    loop_control:
+      label: "{{ item.networks }}"
     when: bgp.networks is defined
 
   - name: configure_bgp_neighbors
