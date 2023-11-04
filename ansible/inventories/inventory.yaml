@@ -77,6 +77,10 @@ router:
             description: r8v
             remote_as: 65000
             update_source: lo
+          - ipv4_address: 10.10.255.9
+            description: r9v
+            remote_as: 65000
+            update_source: lo
 
           - ipv4_address: 10.10.255.11
             description: r11m
@@ -159,6 +163,10 @@ router:
             description: r8v
             remote_as: 65000
             update_source: lo
+          - ipv4_address: 10.10.255.9
+            description: r9v
+            remote_as: 65000
+            update_source: lo
 
           - ipv4_address: 10.10.255.11
             description: r11m
@@ -237,6 +245,10 @@ router:
             description: r8v
             remote_as: 65000
             update_source: lo
+          - ipv4_address: 10.10.255.9
+            description: r9v
+            remote_as: 65000
+            update_source: lo
 
           - ipv4_address: 10.10.255.11
             description: r11m
@@ -312,6 +324,10 @@ router:
             description: r8v
             remote_as: 65000
             update_source: lo
+          - ipv4_address: 10.10.255.9
+            description: r9v
+            remote_as: 65000
+            update_source: lo
 
           - ipv4_address: 10.10.255.11
             description: r11m
@@ -385,6 +401,10 @@ router:
             update_source: lo
           - ipv4_address: 10.10.255.8
             description: r8v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.9
+            description: r9v
             remote_as: 65000
             update_source: lo
 
@@ -464,6 +484,10 @@ router:
             description: r8v
             remote_as: 65000
             update_source: lo
+          - ipv4_address: 10.10.255.9
+            description: r9v
+            remote_as: 65000
+            update_source: lo
 
           - ipv4_address: 10.10.255.11
             description: r11m
@@ -491,6 +515,9 @@ router:
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 10.10.78.7/24
+        - interface: eth4
+          interface_type: ethernet
+          ipv4_address: 10.10.79.7/24
       ospf:
         router_id: 10.10.255.7
         v4:
@@ -502,6 +529,8 @@ router:
               network: 10.10.37.0/24
             - interface: eth2
               network: 10.10.78.0/24
+            - interface: eth4
+              network: 10.10.79.0/24
             - interface: lo
               network: 10.10.255.7/32
       bgp:
@@ -539,6 +568,10 @@ router:
           #   update_source: lo
           - ipv4_address: 10.10.255.8
             description: r8v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.9
+            description: r9v
             remote_as: 65000
             update_source: lo
 
@@ -616,6 +649,86 @@ router:
             update_source: lo
           # - ipv4_address: 10.10.255.8
           #   description: r8v
+          #   remote_as: 65000
+          #   update_source: lo
+          - ipv4_address: 10.10.255.9
+            description: r9v
+            remote_as: 65000
+            update_source: lo
+
+          - ipv4_address: 10.10.255.11
+            description: r11m
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.12
+            description: r12m
+            remote_as: 65000
+            update_source: lo
+
+
+    r9v:
+      os: "vyos"
+      ansible_host: 10.20.30.9
+      interfaces:
+        - interface: lo
+          interface_type: loopback
+          ipv4_address: 10.10.255.9/32
+        - interface: eth1
+          interface_type: ethernet
+          ipv4_address: 10.10.79.9/24
+        - interface: eth2
+          interface_type: ethernet
+          ipv4_address: 10.9.10.9/24
+      ospf:
+        router_id: 10.10.255.9
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth1
+              network: 10.10.79.0/24
+            - interface: eth2
+              network: 10.9.10.0/24
+            - interface: lo
+              network: 10.10.255.9/32
+      bgp:
+        router_id: 10.10.255.9
+        as: 65000
+        #networks:
+        neighbors:
+          - ipv4_address: 10.10.255.1
+            description: r1v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.2
+            description: r2v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.3
+            description: r3v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.4
+            description: r4v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.5
+            description: r5v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.6
+            description: r6v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.7
+            description: r7v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.8
+            description: r8v
+            remote_as: 65000
+            update_source: lo
+          # - ipv4_address: 10.10.255.9
+          #   description: r9v
           #   remote_as: 65000
           #   update_source: lo
 
