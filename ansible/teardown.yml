@@ -6,8 +6,8 @@
   connection: network_cli
 
   roles:
-    - role: vyos_setup
+    - role: vyos_teardown
       when: os == "vyos"
-    - role: mtk_setup
+    - role: mtk_teardown
       when: os == "mikrotik"
     

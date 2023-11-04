@@ -6,13 +6,41 @@
     loop: "{{ interfaces }}"
     loop_control:
       label: "{{ item.interface }}"
-    tags: set_interface
+    tags: interfaces
+    when: os == "vyos"
 
+  - name: configure_ospf_parameters
+    vyos_config:
+      lines:
+        - set protocols ospf parameters router-id {{ ospf.router_id }}
+    tags: ospf
+    when: os == "vyos"
+
+  - name: configure_ospf_interface_and_area
+    vyos_config:
+      lines:
+        - set protocols ospf area {{ ospf.v4.area }} network {{ item.network }}
+        - set protocols ospf interface {{ item.interface }}
+    loop: "{{ ospf.v4.interfaces }}"
+    loop_control:
+      label: "{{ item.interface }}"
+    tags: ospf
+    when: os == "vyos"
+
+  - name: configure_ospf_default_information
+    vyos_config:
+      lines:
+          set protocols ospf default-information originate {{ ospf.v4.default_information }}
+    tags: ospf
+    when: os == "vyos" and ospf.v4.default_information is defined
+    
   - name: configure_bgp_parameters
     vyos_config:
       lines:
         - set protocols bgp parameters router-id {{ bgp.router_id }}
         - set protocols bgp system-as {{ bgp.as }}
+    tags: bgp
+    when: os == "vyos"
 
   - name: configure_bgp_networks
     vyos_config:
@@ -22,7 +50,8 @@
     # loop_control:
     #   label: "{{ item.networks }}"
     with_items: "{{ bgp.networks.ipv4_unicast }}"
-    when: bgp.networks is defined
+    tags: bgp
+    when: os == "vyos" and bgp.networks is defined
 
   - name: configure_bgp_neighbors
     vyos_config:
@@ -34,4 +63,9 @@
     loop: "{{ bgp.neighbors }}"
     loop_control:
       label: "{{ item.ipv4_address }}"
+    tags: bgp
+    when: os == "vyos"
     
+  - name: save config
+    vyos_config:
+      save: true

@@ -32,13 +32,20 @@ router:
           interface_type: ethernet
           ipv4_address: 10.1.11.1/24
 
-      ospf_network:
-        - 10.10.12.0/24
-        - 10.10.15.0/24
-        - 10.10.255.1/32
-      ospf_interface:
-        - eth1
-        - eth2
+      ospf:
+        router_id: 10.10.255.1
+        default_information: originate
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth1
+              network: 10.10.15.0/24
+            - interface: eth2
+              network: 10.10.12.0/24
+            - interface: eth4
+              network: 10.1.11.0/24
+            - interface: lo
+              network: 10.10.255.1/32
 
       bgp:
         router_id: 10.10.255.1
@@ -113,15 +120,21 @@ router:
           interface_type: ethernet
           ipv4_address: 10.2.12.2/24
 
-      ospf_network:
-        - 10.10.12.0/24
-        - 10.10.23.0/24
-        - 10.10.26.0/24
-        - 10.10.255.2/32
-      ospf_interface:
-        - eth0
-        - eth1
-        - eth2
+      ospf:
+        router_id: 10.10.255.2
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth0
+              network: 10.10.12.0/24
+            - interface: eth1
+              network: 10.10.26.0/24
+            - interface: eth2
+              network: 10.10.23.0/24
+            - interface: eth4
+              network: 10.2.12.0/24
+            - interface: lo
+              network: 10.10.255.2/32
 
       bgp:
         router_id: 10.10.255.2
@@ -192,15 +205,19 @@ router:
           interface_type: ethernet
           ipv4_address: 10.10.34.3/24
 
-      ospf_network:
-        - 10.10.23.0/24
-        - 10.10.34.0/24
-        - 10.10.37.0/24
-        - 10.10.255.3/32
-      ospf_interface:
-        - eth0
-        - eth1
-        - eth2
+      ospf:
+        router_id: 10.10.255.3
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth0
+              network: 10.10.23.0/24
+            - interface: eth1
+              network: 10.10.37.0/24
+            - interface: eth2
+              network: 10.10.34.0/24
+            - interface: lo
+              network: 10.10.255.3/32
 
       bgp:
         router_id: 10.10.255.3
@@ -271,14 +288,17 @@ router:
           interface_type: ethernet
           ipv4_address: 172.16.4.1/24
 
-      ospf_network:
-        - 10.10.34.0/24
-        - 10.10.48.0/24
-        - 10.10.255.4/32
-        - 172.16.4.0/24
-      ospf_interface:
-        - eth0
-        - eth1
+      ospf:
+        router_id: 10.10.255.4
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth0
+              network: 10.10.34.0/24
+            - interface: eth1
+              network: 10.10.48.0/24
+            - interface: lo
+              network: 10.10.255.4/32
 
       bgp:
         router_id: 10.10.255.4
@@ -348,14 +368,17 @@ router:
           interface_type: ethernet
           ipv4_address: 10.10.56.5/24
 
-      ospf_network:
-        - 10.10.15.0/24
-        - 10.10.56.0/24
-        - 10.10.255.5/32
-        - 172.16.5.0/24
-      ospf_interface:
-        - eth1
-        - eth2
+      ospf:
+        router_id: 10.10.255.5
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth1
+              network: 10.10.15.0/24
+            - interface: eth2
+              network: 10.10.56.0/24
+            - interface: lo
+              network: 10.10.255.5/32
 
       bgp:
         router_id: 10.10.255.5
@@ -425,15 +448,19 @@ router:
           interface_type: ethernet
           ipv4_address: 10.10.67.6/24
 
-      ospf_network:
-        - 10.10.26.0/24
-        - 10.10.56.0/24
-        - 10.10.67.0/24
-        - 10.10.255.6/32
-      ospf_interface:
-        - eth0
-        - eth1
-        - eth2
+      ospf:
+        router_id: 10.10.255.6
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth0
+              network: 10.10.56.0/24
+            - interface: eth1
+              network: 10.10.26.0/24
+            - interface: eth2
+              network: 10.10.67.0/24
+            - interface: lo
+              network: 10.10.255.6/32
 
       bgp:
         router_id: 10.10.255.6
@@ -503,15 +530,19 @@ router:
           interface_type: ethernet
           ipv4_address: 10.10.78.7/24
 
-      ospf_network:
-        - 10.10.37.0/24
-        - 10.10.67.0/24
-        - 10.10.78.0/24
-        - 10.10.255.7/32
-      ospf_interface:
-        - eth0
-        - eth1
-        - eth2
+      ospf:
+        router_id: 10.10.255.7
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth0
+              network: 10.10.67.0/24
+            - interface: eth1
+              network: 10.10.37.0/24
+            - interface: eth2
+              network: 10.10.78.0/24
+            - interface: lo
+              network: 10.10.255.7/32
 
       bgp:
         router_id: 10.10.255.7
@@ -581,14 +612,17 @@ router:
           interface_type: ethernet
           ipv4_address: 172.16.8.1/24
 
-      ospf_network:
-        - 10.10.48.0/24
-        - 10.10.78.0/24
-        - 10.10.255.8/32
-        - 172.16.8.0/24
-      ospf_interface:
-        - eth0
-        - eth1
+      ospf:
+        router_id: 10.10.255.8
+        v4:
+          area: 0
+          interfaces:
+            - interface: eth0
+              network: 10.10.78.0/24
+            - interface: eth1
+              network: 10.10.48.0/24
+            - interface: lo
+              network: 10.10.255.8/32
 
       bgp:
         router_id: 10.10.255.8
@@ -661,14 +695,26 @@ router:
           interface_type: ethernet
           ipv4_address: 10.11.12.11/24
 
-      ospf_network:
-        - 10.1.11.0/24
-        - 10.11.12.0/24
-        - 10.10.255.11/32
-      ospf_interface:
-        - ether2
-        - ether3
-        - lo
+      ospf:
+        router_id: 10.10.255.11
+        v4:
+          instance: ospf-instance-v4
+          area: ospf-area-v4
+          interfaces:
+            - interface: r12m
+              network: 10.11.12.0/24
+            - interface: r1v
+              network: 10.1.11.0/24
+            - interface: lo
+              network: 10.10.255.11/32
+        v6:
+          instance: ospf-instance-b6
+          area: ospf-area-v6
+          interfaces:
+            - interface: r12m
+              network: fd00:11:12::/64
+            - interface: lo
+              network: fd00:255::11/64
 
       bgp:
         router_id: 10.10.255.11
@@ -738,15 +784,27 @@ router:
           interface_type: ethernet
           ipv4_address: 10.11.13.12/24
 
-      ospf_network:
-        - 10.2.12.0/24
-        - 10.11.12.0/24
-        - 10.10.255.12/32
-      ospf_interface:
-        - ether1
-        - ether2
-        - lo
-        
+      ospf:
+        router_id: 10.10.255.12
+        v4:
+          instance: ospf-instance-v4
+          area: ospf-area-v4
+          interfaces:
+            - interface: r11m
+              network: 10.11.12.0/24
+            - interface: r2v
+              network: 10.2.12.0/24
+            - interface: lo
+              network: 10.10.255.12/32
+        v6:
+          instance: ospf-instance-b6
+          area: ospf-area-v6
+          interfaces:
+            - interface: r11m
+              network: fd00:11:12::/64
+            - interface: lo
+              network: fd00:255::12/64
+
       bgp:
         router_id: 10.10.255.12
         as: 65000
