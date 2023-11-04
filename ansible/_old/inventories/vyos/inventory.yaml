@@ -42,6 +42,20 @@ router:
         - eth1
         - eth2
 
+      bgp:
+        router_id: 10.10.255.1
+        as: 65000
+        #networks:
+        neighbors:
+          - ipv4_address: 10.10.255.2
+            description: r2v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.11
+            description: r11m
+            remote_as: 65000
+            update_source: lo
+
 
     r2v:
       os: "vyos"
@@ -78,6 +92,16 @@ router:
         - eth1
         - eth2
 
+      bgp:
+        router_id: 10.10.255.2
+        as: 65000
+        #networks:
+        neighbors:
+          - ipv4_address: 10.10.255.1
+            description: r1v
+            remote_as: 65000
+            update_source: lo
+
 
     r3v:
       os: "vyos"
@@ -110,7 +134,6 @@ router:
         - eth0
         - eth1
         - eth2
-
 
 
     r4v:
@@ -205,6 +228,7 @@ router:
         - eth0
         - eth1
         - eth2
+
 
     r7v:
       os: "vyos"
@@ -328,4 +352,4 @@ router:
         - ether1
         - ether2
         - lo
-        
+
