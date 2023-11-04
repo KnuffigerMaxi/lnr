@@ -9,29 +9,23 @@ router:
     r1v:
       os: "vyos"
       ansible_host: 10.20.30.1
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.1/32
-
         - interface: eth0
           interface_type: ethernet
           ipv4_address: dhcp
           hw_address: 00:50:56:01:0e:cc
-
         - interface: eth1
           interface_type: ethernet
           ipv4_address: 10.10.15.1/24
-
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 10.10.12.1/24
-
         - interface: eth4
           interface_type: ethernet
           ipv4_address: 10.1.11.1/24
-
       ospf:
         router_id: 10.10.255.1
         default_information: originate
@@ -46,7 +40,6 @@ router:
               network: 10.1.11.0/24
             - interface: lo
               network: 10.10.255.1/32
-
       bgp:
         router_id: 10.10.255.1
         as: 65000
@@ -98,28 +91,22 @@ router:
     r2v:
       os: "vyos"
       ansible_host: 10.20.30.2
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.2/32
-
         - interface: eth0
           interface_type: ethernet
           ipv4_address: 10.10.12.2/24
-
         - interface: eth1
           interface_type: ethernet
           ipv4_address: 10.10.26.2/24
-
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 10.10.23.2/24
-
         - interface: eth4
           interface_type: ethernet
           ipv4_address: 10.2.12.2/24
-
       ospf:
         router_id: 10.10.255.2
         v4:
@@ -135,7 +122,6 @@ router:
               network: 10.2.12.0/24
             - interface: lo
               network: 10.10.255.2/32
-
       bgp:
         router_id: 10.10.255.2
         as: 65000
@@ -183,28 +169,24 @@ router:
             remote_as: 65000
             update_source: lo
 
+
     r3v:
       os: "vyos"
       ansible_host: 10.20.30.3
       ansible_user: vyos
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.3/32
-
         - interface: eth0
           interface_type: ethernet
           ipv4_address: 10.10.23.3/24
-
         - interface: eth1
           interface_type: ethernet
           ipv4_address: 10.10.37.3/24
-
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 10.10.34.3/24
-
       ospf:
         router_id: 10.10.255.3
         v4:
@@ -218,7 +200,6 @@ router:
               network: 10.10.34.0/24
             - interface: lo
               network: 10.10.255.3/32
-
       bgp:
         router_id: 10.10.255.3
         as: 65000
@@ -270,24 +251,19 @@ router:
     r4v:
       os: "vyos"
       ansible_host: 10.20.30.4
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.4/32
-
         - interface: eth0
           interface_type: ethernet
           ipv4_address: 10.10.34.4/24
-
         - interface: eth1
           interface_type: ethernet
           ipv4_address: 10.10.48.4/24
-
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 172.16.4.1/24
-
       ospf:
         router_id: 10.10.255.4
         v4:
@@ -299,7 +275,6 @@ router:
               network: 10.10.48.0/24
             - interface: lo
               network: 10.10.255.4/32
-
       bgp:
         router_id: 10.10.255.4
         as: 65000
@@ -347,27 +322,23 @@ router:
             remote_as: 65000
             update_source: lo
 
+
     r5v:
       os: "vyos"
       ansible_host: 10.20.30.5
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.5/32
-
         - interface: eth0
           interface_type: ethernet
           ipv4_address: 172.16.5.1/24
-
         - interface: eth1
           interface_type: ethernet
           ipv4_address: 10.10.15.5/24
-
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 10.10.56.5/24
-
       ospf:
         router_id: 10.10.255.5
         v4:
@@ -379,7 +350,6 @@ router:
               network: 10.10.56.0/24
             - interface: lo
               network: 10.10.255.5/32
-
       bgp:
         router_id: 10.10.255.5
         as: 65000
@@ -427,27 +397,23 @@ router:
             remote_as: 65000
             update_source: lo
 
+
     r6v:
       os: "vyos"
       ansible_host: 10.20.30.6
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.6/32
-
         - interface: eth0
           interface_type: ethernet
           ipv4_address: 10.10.56.6/24
-
         - interface: eth1
           interface_type: ethernet
           ipv4_address: 10.10.26.6/24
-
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 10.10.67.6/24
-
       ospf:
         router_id: 10.10.255.6
         v4:
@@ -461,7 +427,6 @@ router:
               network: 10.10.67.0/24
             - interface: lo
               network: 10.10.255.6/32
-
       bgp:
         router_id: 10.10.255.6
         as: 65000
@@ -509,27 +474,23 @@ router:
             remote_as: 65000
             update_source: lo
 
+
     r7v:
       os: "vyos"
       ansible_host: 10.20.30.7
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.7/32
-
         - interface: eth0
           interface_type: ethernet
           ipv4_address: 10.10.67.7/24
-
         - interface: eth1
           interface_type: ethernet
           ipv4_address: 10.10.37.7/24
-
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 10.10.78.7/24
-
       ospf:
         router_id: 10.10.255.7
         v4:
@@ -543,7 +504,6 @@ router:
               network: 10.10.78.0/24
             - interface: lo
               network: 10.10.255.7/32
-
       bgp:
         router_id: 10.10.255.7
         as: 65000
@@ -591,27 +551,23 @@ router:
             remote_as: 65000
             update_source: lo
 
+
     r8v:
       os: "vyos"
       ansible_host: 10.20.30.8
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.8/32
-
         - interface: eth0
           interface_type: ethernet
           ipv4_address: 10.10.78.8/24
-
         - interface: eth1
           interface_type: ethernet
           ipv4_address: 10.10.48.8/24
-
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 172.16.8.1/24
-
       ospf:
         router_id: 10.10.255.8
         v4:
@@ -623,7 +579,6 @@ router:
               network: 10.10.48.0/24
             - interface: lo
               network: 10.10.255.8/32
-
       bgp:
         router_id: 10.10.255.8
         as: 65000
@@ -673,28 +628,24 @@ router:
             remote_as: 65000
             update_source: lo
 
+
     r11m:
       os: "mikrotik"
       ansible_host: 10.20.30.11
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.11/32
-
         - interface: WAN
           interface_type: ethernet
           ipv4_address: dhcp
           hw_address: 00:50:56:00:BE:28
-
         - interface: r1v
           interface_type: ethernet
           ipv4_address: 10.1.11.11/24
-
         - interface: r12m
           interface_type: ethernet
           ipv4_address: 10.11.12.11/24
-
       ospf:
         router_id: 10.10.255.11
         v4:
@@ -715,7 +666,6 @@ router:
               network: fd00:11:12::/64
             - interface: lo
               network: fd00:255::11/64
-
       bgp:
         router_id: 10.10.255.11
         as: 65000
@@ -763,27 +713,23 @@ router:
             remote_as: 65000
             update_source: lo
 
+
     r12m:
       os: "mikrotik"
       ansible_host: 10.20.30.12
-
       interfaces:
         - interface: lo
           interface_type: loopback
           ipv4_address: 10.10.255.12/32
-
         - interface: r11m
           interface_type: ethernet
           ipv4_address: 10.11.12.12/24
-
         - interface: r2v
           interface_type: ethernet
           ipv4_address: 10.2.12.12/24
-
         - interface: r13m
           interface_type: ethernet
           ipv4_address: 10.11.13.12/24
-
       ospf:
         router_id: 10.10.255.12
         v4:
@@ -804,7 +750,6 @@ router:
               network: fd00:11:12::/64
             - interface: lo
               network: fd00:255::12/64
-
       bgp:
         router_id: 10.10.255.12
         as: 65000
@@ -851,3 +796,4 @@ router:
           #   description: r12m
           #   remote_as: 65000
           #   update_source: lo
+          
