@@ -82,6 +82,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -168,6 +172,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -250,6 +258,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -329,6 +341,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -408,6 +424,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -489,6 +509,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -575,6 +599,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -601,6 +629,9 @@ router:
         - interface: eth2
           interface_type: ethernet
           ipv4_address: 172.16.8.1/24
+        - interface: eth4
+          interface_type: ethernet
+          ipv4_address: 10.8.10.10/24
       ospf:
         router_id: 10.10.255.8
         v4:
@@ -610,6 +641,8 @@ router:
               network: 10.10.78.0/24
             - interface: eth1
               network: 10.10.48.0/24
+            - interface: eth4
+              network: 10.8.10.0/24
             - interface: lo
               network: 10.10.255.8/32
       bgp:
@@ -656,6 +689,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -732,6 +769,97 @@ router:
           #   remote_as: 65000
           #   update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.11
+            description: r11m
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.12
+            description: r12m
+            remote_as: 65000
+            update_source: lo
+
+
+    r10m:
+      os: "mikrotik"
+      ansible_host: 10.20.30.10
+      interfaces:
+        - interface: lo
+          interface_type: loopback
+          ipv4_address: 10.10.255.10/32
+        - interface: r8v
+          interface_type: ethernet
+          ipv4_address: 10.8.10.10/24
+        - interface: r9v
+          interface_type: ethernet
+          ipv4_address: 10.9.10.10/24
+      ospf:
+        router_id: 10.10.255.10
+        v4:
+          instance: ospf-instance-v4
+          area: ospf-area-v4
+          interfaces:
+            - interface: r9v
+              network: 10.9.10.0/24
+            - interface: r8v
+              network: 10.8.10.0/24
+            - interface: lo
+              network: 10.10.255.10/32
+        v6:
+          instance: ospf-instance-b6
+          area: ospf-area-v6
+          interfaces:
+            - interface: r8v
+              network: fd00:8:10::/64
+            - interface: r9v
+              network: fd00:9:10::/64
+            - interface: lo
+              network: fd00:255::10/64
+      bgp:
+        router_id: 10.10.255.10
+        as: 65000
+        #networks:
+        neighbors:
+          - ipv4_address: 10.10.255.1
+            description: r1v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.2
+            description: r2v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.3
+            description: r3v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.4
+            description: r4v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.5
+            description: r5v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.6
+            description: r6v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.7
+            description: r7v
+            remote_as: 65000
+            update_source: lo
+          - ipv4_address: 10.10.255.8
+            description: r8v
+            remote_as: 65000
+            update_source: lo
+
+          # - ipv4_address: 10.10.255.10
+          #   description: r10m
+          #   remote_as: 65000
+          #   update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000
@@ -817,6 +945,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           # - ipv4_address: 10.10.255.11
           #   description: r11m
           #   remote_as: 65000
@@ -901,6 +1033,10 @@ router:
             remote_as: 65000
             update_source: lo
 
+          - ipv4_address: 10.10.255.10
+            description: r10m
+            remote_as: 65000
+            update_source: lo
           - ipv4_address: 10.10.255.11
             description: r11m
             remote_as: 65000

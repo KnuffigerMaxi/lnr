@@ -1,9 +1,12 @@
 ---
+- vars:
+    ansible_network_os: vyos.vyos.vyos
+
 - name: Vyos Kram
   hosts: router
   # throttle: 1
   gather_facts: no
-
+  
   tasks:
   - name: configurable backup path
     vyos_config:
